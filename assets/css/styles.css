@@ -2971,72 +2971,124 @@ textarea::placeholder {
 
 
 
-
-
-
-
-
-
-
-
-
 .success-slider-section{
-    padding-top:90px;
-    background:#0f1735;
+    padding-top:100px;
+    background:
+    linear-gradient(
+        180deg,
+        #0f1735 0%,
+        #131d44 100%
+    );
     overflow:hidden;
+    position:relative;
+}
+
+/* luxury fade edges */
+.success-slider-section::before,
+.success-slider-section::after{
+    content:"";
+    position:absolute;
+    top:0;
+    width:180px;
+    height:100%;
+    z-index:5;
+    pointer-events:none;
+}
+
+.success-slider-section::before{
+    left:0;
+    background:
+    linear-gradient(
+        to right,
+        #0f1735,
+        transparent
+    );
+}
+
+.success-slider-section::after{
+    right:0;
+    background:
+    linear-gradient(
+        to left,
+        #131d44,
+        transparent
+    );
 }
 
 .success-head{
     text-align:center;
-    margin-bottom:30px;
-    row-gap: 20px;
+    margin-bottom:45px;
 }
 
 .success-head h2{
     color:#fff;
 }
 
-.success-slider{
+.success-head p{
+    color:rgba(255,255,255,.72);
+    margin-top:12px;
+}
+
+.success-slider-wrap{
     overflow:hidden;
     position:relative;
 }
 
 .success-track{
     display:flex;
+    gap:10px;
     width:max-content;
-    animation:scrollSlider 35s linear infinite;
+
+    animation:
+    premiumScroll 28s linear infinite;
 }
 
-.success-slider:hover .success-track{
+.success-slider-wrap:hover .success-track{
     animation-play-state:paused;
 }
 
 .success-item{
-    width:220px;
-    height:320px;
+    width:280px;
+    height:300px;
+    /* border-radius:5px; */
     overflow:hidden;
     flex-shrink:0;
-    border-radius:0;
+    position:relative;
+
+    background:#fff;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.25);
+
+    transition:.4s ease;
+}
+
+.success-item:hover{
+    transform:
+    translateY(-8px)
+    scale(1.02);
 }
 
 .success-item img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.4s ease;
+    transition:transform .7s ease;
 }
 
 .success-item:hover img{
-    transform:scale(1.06);
+    transform:scale(1.08);
 }
 
-@keyframes scrollSlider{
+/* smooth continuous loop */
+@keyframes premiumScroll{
+
     from{
         transform:translateX(0);
     }
 
     to{
-        transform:translateX(-50%);
+        transform:translateX(calc(-50% - 11px));
     }
 }
 
@@ -3045,12 +3097,34 @@ textarea::placeholder {
     .success-item{
         width:220px;
         height:300px;
+        border-radius:22px;
     }
 
     .success-track{
-        animation-duration:22s;
+        gap:16px;
+        animation-duration:18s;
+    }
+
+    .success-slider-section::before,
+    .success-slider-section::after{
+        width:70px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
