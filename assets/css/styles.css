@@ -3051,3 +3051,17 @@ textarea::placeholder {
         animation-duration:22s;
     }
 }
+
+
+
+
+.footer-bottom a{
+    color:#f1b13b;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.footer-bottom a:hover{
+    opacity:.8;
+}
